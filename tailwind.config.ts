@@ -57,6 +57,22 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Custom crop advisory colors
+        soil: {
+          brown: "hsl(var(--soil-brown))",
+        },
+        crop: {
+          green: "hsl(var(--crop-green))",
+        },
+        harvest: {
+          gold: "hsl(var(--harvest-gold))",
+        },
+        sky: {
+          blue: "hsl(var(--sky-blue))",
+        },
+        warning: {
+          orange: "hsl(var(--warning-orange))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

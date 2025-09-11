@@ -2,41 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Smart Crop Advisory Design System - Earthy, farmer-friendly colors and styles */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 45 15% 97%;
+    --foreground: 30 15% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 30 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 30 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Earthy green primary - like healthy crops */
+    --primary: 120 35% 35%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Warm soil brown secondary */
+    --secondary: 30 25% 85%;
+    --secondary-foreground: 30 15% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 45 20% 90%;
+    --muted-foreground: 30 10% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Golden harvest accent */
+    --accent: 45 70% 70%;
+    --accent-foreground: 30 15% 15%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 30 15% 85%;
+    --input: 30 15% 90%;
+    --ring: 120 35% 35%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom crop advisory colors */
+    --soil-brown: 30 40% 45%;
+    --crop-green: 120 50% 40%;
+    --harvest-gold: 45 80% 60%;
+    --sky-blue: 200 70% 60%;
+    --warning-orange: 25 85% 65%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--crop-green)), hsl(var(--harvest-gold)));
+    --gradient-earth: linear-gradient(180deg, hsl(var(--harvest-gold)), hsl(var(--soil-brown)));
+    --gradient-sky: linear-gradient(180deg, hsl(var(--sky-blue)), hsl(var(--crop-green)));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(var(--soil-brown) / 0.2);
+    --shadow-card: 0 8px 32px -8px hsl(var(--crop-green) / 0.15);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +120,44 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* Farmer-friendly button styles */
+  .btn-farm {
+    @apply inline-flex items-center justify-center rounded-xl px-6 py-4 text-lg font-semibold transition-all duration-300 transform;
+    @apply hover:scale-105 active:scale-95;
+    min-height: 56px; /* Large touch targets */
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .btn-farm-primary {
+    background: var(--gradient-primary);
+    @apply text-white;
+  }
+  
+  .btn-farm-earth {
+    background: var(--gradient-earth);
+    @apply text-white;
+  }
+  
+  /* Feature cards */
+  .feature-card {
+    @apply bg-card rounded-2xl p-6 transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card), 0 12px 40px -12px hsl(var(--crop-green) / 0.25);
+  }
+  
+  /* Input styles for farmers */
+  .farm-input {
+    @apply w-full px-4 py-4 text-lg rounded-xl border-2 border-input bg-background;
+    @apply focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all;
+    min-height: 56px;
   }
 }
